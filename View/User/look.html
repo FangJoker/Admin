@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<head>
+</head>
+</head>
+<body>
+	<form action="{:U('Admin/User/check','','')}" method="post" >
+	<p>查询方式</p>
+	<select name="select"> 
+	<option value="0">用户</option> 
+	<option value="1">标题</option> 
+	<option value="2">内容</option> 
+	<option value="3">时间</option> 
+	</select>
+	<p><input type="text" name="check"/></p>
+	<p><input type="submit" value="查询"></p>
+	</form>
+		<table>
+			<caption>查询结果</caption>
+			<thead>
+				<tr>
+					<th>用户名</th>
+					<th>标题</th>
+					<th>内容</th>
+					<th>时间</th>
+					<th>图片</th>
+					<th>操作</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="list" id="vo">
+					<tr>
+						<td>{$vo.user}</td>
+						<td>{$vo.title}</td>
+						<td>{$vo.content}</td>
+						<td>{$vo.time}</td>
+						<td><img src="_PHOTO_{$vo.photo}" style="height: 200px; width: 200px;" /></td>
+						<td><a href="{:U('Admin/User/getid','','')}?id={$vo.id}">修改</a></td>
+				 		<td><a href="{:U('Admin/User/delete','','')}?id={$vo.id}" >删除</a></td>
+					</tr>
+				</volist>
+			</tbody>
+		</table>
+	<p><a href="{:U('Admin/User/main','','')}">返回上级菜单</a></p>
+</body>
+</html>

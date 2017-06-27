@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="_Public_H-UI_MIN_CSSH-ui.min.css"/>
+<link rel="stylesheet" type="text/css" href="_Public_H-ui_admin_cssH-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="_Public_iconfont_cssiconfont.css" />
+<link rel="stylesheet" type="text/css" href="_Public_skin_cssskin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="_Public_style_cssstyle.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>折线图</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 统计管理 <span class="c-gray en">&gt;</span> 折线图 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <div class="f-14 c-error"></div>
+    <div id="container" style="min-width:700px;height:400px"></div>
+    <div style="color :red ">总发布情况：<span>高数：</span>
+        <div>
+</div>
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/secondHand/Admin/Public/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/secondHand/Admin/Public/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/secondHand/Admin/Public/static/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="/secondHand/Admin/Public/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/secondHand/Admin/Public/lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="/secondHand/Admin/Public/lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+
+<script type="text/javascript">
+$(function () {
+
+   $.ajax({
+            type: 'GET',
+            url: '{:U('Product/Chartslist')}',
+            dataType: 'json',
+            success: function(data){
+             
+        
+
+       Highcharts.chart('container', {
+        title: {
+            text: '近七天各类书本发布情况',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'By 海贝Tv 研发部',
+            x: -20,
+    
+        },
+        xAxis: {
+            categories: ['七天前', '六天前', '五天前', '四天前', '三天前', '两天前','七天前', '一天前'],
+           
+        },
+        yAxis: {
+            title: {
+                text: '数量 (本)'
+
+            },
+            plotLines: [{
+                value: 0,
+                width: 2,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '本'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 1
+        },
+        series: [{
+            name: '高数',
+            data: [parseInt(data.day1.gaoshu),parseInt(data.day2.gaoshu),parseInt(data.day3.gaoshu),parseInt(data.day4.gaoshu),parseInt(data.day4.gaoshu),parseInt(data.day6.gaoshu),parseInt(data.day7.gaoshu)]
+        }, {
+            name: '英语',
+            data: [parseInt(data.day1.yingyu),parseInt(data.day2.yingyu),parseInt(data.day3.yingyu),parseInt(data.day4.yingyu),parseInt(data.day4.yingyu),parseInt(data.day6.yingyu),parseInt(data.day7.yingyu)]
+        }, {
+            name: '思政',
+            data: [parseInt(data.day1.sizheng),parseInt(data.day2.sizheng),parseInt(data.day3.sizheng),parseInt(data.day4.sizheng),parseInt(data.day4.sizheng),parseInt(data.day6.sizheng),parseInt(data.day7.sizheng)]
+        }, {
+            name: '通用',
+            data: [parseInt(data.day1.tongyong),parseInt(data.day2.tongyong),parseInt(data.day3.tongyong),parseInt(data.day4.tongyong),parseInt(data.day4.tongyong),parseInt(data.day6.tongyong),parseInt(data.day7.tongyong)]    
+
+        }]
+    });
+
+
+
+            },
+            error:function(data) {
+                console.log(data.msg);
+            },
+        });     
+
+
+});
+</script>
+
+</body>
+</html>
