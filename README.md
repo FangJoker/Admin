@@ -270,7 +270,7 @@ Tp3.2 的success和error方法会自动判断当前请求是否属于Ajax请求�
           
 }
 
-当然在每次进入发布页面的时候都要情况SESSION值*product控制器的add方法*
+当然在每次进入发布页面的时候都要情空SESSION值*product控制器的add方法*
                 
     session('bigPicture', null);
      session('bigPicture', null);
