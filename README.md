@@ -27,7 +27,7 @@
         return false;
     });
 
-</script>
+    </script>
 
 Tp3.2 的success和error方法会自动判断当前请求是否属于Ajax请求，如果属于Ajax请求则会调用ajaxReturn方法返回信息。 ajax方式下面，success和error方法会封装下面的数据返回：
     
