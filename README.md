@@ -474,7 +474,7 @@ Tp3.2 的success和error方法会自动判断当前请求是否属于Ajax请求�
                 
            
            Highcharts.chart('container', {
-            title: {
+             title: {
                 text: '近七天各类书本发布情况',
                 x: -20 //center
             },
@@ -484,7 +484,7 @@ Tp3.2 的success和error方法会自动判断当前请求是否属于Ajax请求�
        
             },
             xAxis: {
-                categories: ['七天前', '六天前', '五天前', '四天前', '三天前', '两天前','七天前', '一天前'],
+                 categories: ['七天前', '六天前', '五天前', '四天前', '三天前', '两天前','七天前', '一天前'],
               
             },
             yAxis: {
@@ -531,3 +531,4 @@ Tp3.2 的success和error方法会自动判断当前请求是否属于Ajax请求�
    
 
 好了到这里整个后台的主要功能实现方法大致说明完毕。请大家多多指教。 
+                                                             by 巧
